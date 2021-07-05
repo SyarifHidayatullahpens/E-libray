@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 class BookController extends Controller
@@ -15,7 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $datas = Book::latest()->paginate(3);
+        $datas = Book::latest()->paginate(5);
         return view('index',compact('datas'));
     }
 
@@ -40,24 +41,17 @@ class BookController extends Controller
 
         $validated = $request->validate([
             'nama_buku'     => 'required|min:5',
-            'penerbit'     => 'required',
-            'jenis_buku'   => 'required',
+            'penerbit'     => 'required|:min3',
+            'jenis_buku'   => 'required|:min4',
             'thn_terbit'   => 'required'
-        ]);
-        $validatedData = $request->validate([
-            'nama_buku'     => ['required'],
-            'penerbit'     => ['required'],
-            'jenis_buku'   => ['required'],
-            'thn_terbit'   => ['required']
         ]);
         $data   = $request->all();
         // dd($data);
         $book   = Book::create($data);
-
-        if($data){
-            return redirect()->route('index')->with(['success' => 'Data Berhasil Disimpan!']);
+        if($book){
+            return redirect()->route('index')->with('success','Item created successfully!');
         }else{
-            return redirect()->route('index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('index')->with('error','You have no permission for this page!');
         }
     }
 
@@ -94,12 +88,20 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $validated = $request->validate([
+            'nama_buku'     => 'required|min:5',
+            'penerbit'     => 'required|:min3',
+            'jenis_buku'   => 'required|:min4',
+            'thn_terbit'   => 'required'
+        ]);   
         $book = Book::findOrFail($id);
         $data = $request->all(); 
         $book->update($data); 
-        return redirect('/index')
-        ->with('success','Post updated successfully');
+        if($book){
+            return redirect()->route('index')->with('info','You added new items');
+        }else{
+            return redirect()->route('index')->with('error','You have no permission for this page!');
+        }
 
     }
 

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Create Book')
 
 
 @section('content')
@@ -16,10 +17,7 @@
         @csrf
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nama Buku</label>
-            <input type="text" name="nama_buku" class="form-control" id="Nama Buku"  class="@error('title') is-invalid @enderror">
-                @error('title')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+            <input type="text" name="nama_buku" class="form-control" id="Nama Buku">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Penerbit</label>

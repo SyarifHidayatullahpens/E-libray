@@ -1,9 +1,10 @@
 @extends('layouts.app');
+@section('title','Index')
 
 @section('content')
 <div class="container">
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">List Buku</button>
+        <a href="/index" class="btn btn-primary">List Buku</a>
         <button type="button" class="btn btn-warning">Jenis Buku</button>
         <a href="{{route('create')}}" class="btn btn-success">Tambah Buku</a>
     </div>
