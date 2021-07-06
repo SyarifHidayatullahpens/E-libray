@@ -23,7 +23,6 @@ Auth::routes();
 Route::get('/index', [App\Http\Controllers\BookController::class, 'index'])->name('index');
 Route::get('/create', [App\Http\Controllers\BookController::class, 'create'])->name('create');
 // Route::post('/store', [App\Http\Controllers\BookController::class, 'store'])->name('store');
-
 Route::post('/store',  [App\Http\Controllers\BookController::class, 'store'])->name('store');
 Route::get('/delete/{id}', [App\Http\Controllers\BookController::class, 'destroy'])->name('delete');
 Route::get('/edit/{id}',   [App\Http\Controllers\BookController::class, 'edit'])->name('edit');

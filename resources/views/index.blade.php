@@ -1,6 +1,5 @@
-@extends('layouts.app');
+@extends('layouts.app')
 @section('title','Index')
-
 @section('content')
 <div class="container">
     <div class="btn-group" role="group" aria-label="Basic example">
