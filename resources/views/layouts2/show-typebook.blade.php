@@ -8,7 +8,7 @@
     @method('PUT')
   <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Jenis Buku</label>
-        <input type="text" name="jenis_buku" class="form-control" id="exampleFormControlInput1" value="{{$data->jenis_buku}}">
+        <input type="text" name="jenis_buku" class="form-control" id="exampleFormControlInput1" value="{{$listbook->jenis_buku}}">
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Update</button>

@@ -15,11 +15,11 @@
     <form method="POST" action="{{route('store')}}">
         @csrf
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Nama Buku</label>
-            <input type="text" name="jenis_buku" class="form-control" id="Nama Buku">
+            <label for="exampleFormControlInput1" class="form-label">Jenis Buku</label>
+            <input type="text" name="jenis_buku" class="form-control" id="Jenis Buku">
         </div>
         <div class="mb-3">
-            <a href="/index" class="btn btn-primary">Back</a>
+            <a href="/layouts2/index" class="btn btn-primary">Back</a>
             <button type="submit" class="btn btn-success">Simpan</button>
         </div>
     </form>

@@ -16,19 +16,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($datas as $data)
+            @foreach($typebook as $listbook)
                 <tr>
                     <th scope="row">{{$loop->iteration}}</th>
-                    <td>{{$data->jenis_buku}}</td>
+                    <td>{{$listbook->jenis_buku}}</td>
                     <td>
-                    <a href="{{route('edit',[$data->id])}}" type="submit" class="btn btn-primary">Edit</a>
-                    <a href="{{route('delete',[$data->id])}}" type="button" class="btn btn-danger">Delate</a>
+                    <a href="{{route('edit',[$listbook->id])}}" type="submit" class="btn btn-primary">Edit</a>
+                    <a href="{{route('delete',[$listbook->id])}}" type="button" class="btn btn-danger">Delate</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    {{$datas->links()}}
+    {{$typebook->links()}}
     
 @endsection
 </div>

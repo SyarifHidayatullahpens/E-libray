@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Dbook;
 use Illuminate\Http\Request;
 
 class DbookController extends Controller
@@ -13,7 +13,9 @@ class DbookController extends Controller
      */
     public function index()
     {
-        //
+        $booktype = Dbook::all();
+        return view('layouts2.index',compact('booktype'));
+
     }
 
     /**
@@ -23,7 +25,7 @@ class DbookController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts2.create-typebook');
     }
 
     /**
@@ -34,7 +36,16 @@ class DbookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'jenis_buku'    => 'required|min:5'
+        ]);
+        $listbook   = $request->all();
+        $dbook  = Dbook::create($listbook);
+        if($dbook) {
+            return redirect()->route('layouts2.index')->with('success','Item created successfully!');
+        }else{
+            return redirect()->route('layouts2.indexs')->with('error','You have no permission for this page!');
+        }
     }
 
     /**
@@ -45,7 +56,8 @@ class DbookController extends Controller
      */
     public function show($id)
     {
-        //
+        $listbook = Dbook::findOrFail($id);
+        return view('layouts2.show-typebook',compact('listbook'));
     }
 
     /**
@@ -56,7 +68,8 @@ class DbookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $listbook = Dbook::findOrFail($id);
+        return view('layouts2.edit-typebook',compact('data'));
     }
 
     /**
@@ -68,7 +81,17 @@ class DbookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $validated = $request->validate([
+           'jenis_buku'     => 'required|:min:5'
+       ]);
+       $dbook = Dbook::findOrFail($id);
+       $booktype = $request->all();
+       $dbook->update($booktype);
+       if($dbook){
+        return redirect()->route('layouts2.index')->with('info','You added new items');
+        }else{
+            return redirect()->route('layouts2.index')->with('error','You have no permission for this page!');
+        }
     }
 
     /**
@@ -79,6 +102,9 @@ class DbookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dbook = DBook::findOrFail($id);
+        $dbook->delete();
+        return redirect('layouts2.index')
+        ->with('success','Book deleted successfully');
     }
 }

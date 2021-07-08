@@ -27,3 +27,6 @@ Route::get('/delete/{id}', [App\Http\Controllers\BookController::class, 'destroy
 Route::get('/edit/{id}',   [App\Http\Controllers\BookController::class, 'edit'])->name('edit');
 Route::put('/update/{id}',    [App\Http\Controllers\BookController::class, 'update'])->name('update');
 
+
+//jenis buku
+
