@@ -41,9 +41,10 @@ class BookController extends Controller
 
         $validated = $request->validate([
             'nama_buku'     => 'required|min:5',
-            'penerbit'     => 'required|:min3',
-            'jenis_buku'   => 'required|:min4',
-            'thn_terbit'   => 'required'
+            'penerbit'     => 'required|:min:3',
+            'jenis_buku'   => 'required|:min:4',
+            'thn_terbit'   => 'required',
+            'file' => 'required|csv,txt,xlx,xls,pdf|max:2048',
         ]);
         $data   = $request->all();
         // dd($data);
@@ -90,8 +91,8 @@ class BookController extends Controller
     {
         $validated = $request->validate([
             'nama_buku'     => 'required|min:5',
-            'penerbit'     => 'required|:min3',
-            'jenis_buku'   => 'required|:min4',
+            'penerbit'     => 'required|:min:3',
+            'jenis_buku'   => 'required|:min:4',
             'thn_terbit'   => 'required'
         ]);   
         $book = Book::findOrFail($id);

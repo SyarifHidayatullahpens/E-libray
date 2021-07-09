@@ -15,6 +15,7 @@
                 <td scope="col">Penerbit</td>
                 <td scope="col">Jenis Buku</td>
                 <td scope="col">Tahun Terbit</td>
+                <td scope="col">File</td>
                 <td scope="col">Action</td>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                     <td>{{$data->penerbit}}</td>
                     <td>{{$data->jenis_buku}}</td>
                     <td>{{$data->thn_terbit}}</td>
+                    <td>{{$data->file}}</td>
                     <td>
                     <a href="{{route('edit',[$data->id])}}" type="submit" class="btn btn-primary">Edit</a>
                     <a href="{{route('delete',[$data->id])}}" type="button" class="btn btn-danger">Delate</a>
