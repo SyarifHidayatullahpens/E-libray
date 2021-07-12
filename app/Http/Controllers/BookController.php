@@ -44,9 +44,9 @@ class BookController extends Controller
             'penerbit'     => 'required|:min:3',
             'jenis_buku'   => 'required|:min:4',
             'thn_terbit'   => 'required',
-            'file' => 'required|csv,txt,xlx,xls,pdf|max:2048',
         ]);
         $data   = $request->all();
+        
         // dd($data);
         $book   = Book::create($data);
         if($book){
@@ -99,9 +99,9 @@ class BookController extends Controller
         $data = $request->all(); 
         $book->update($data); 
         if($book){
-            return redirect()->route('index')->with('info','You added new items');
+            return redirect()->route('index')->with('info','Success update items');
         }else{
-            return redirect()->route('index')->with('error','You have no permission for this page!');
+            return redirect()->route('index')->with('error','Update Failed!');
         }
 
     }

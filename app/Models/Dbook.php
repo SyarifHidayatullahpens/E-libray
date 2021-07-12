@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Dbook extends Model
 {
     use HasFactory;
+    protected $table = 'dbooks';
+    protected $fillable = ['jenis_buku'];
 
-    public function books(){
-        return $this->hasMany(Book::class);
-    }
 }

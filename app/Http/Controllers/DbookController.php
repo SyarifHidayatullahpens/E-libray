@@ -13,8 +13,8 @@ class DbookController extends Controller
      */
     public function index()
     {
-        $booktype = Dbook::all();
-        return view('layouts2.index',compact('booktype'));
+        $datas = Dbook::all();
+        return view('layouts2.index',compact('datas'));
 
     }
 
@@ -39,8 +39,8 @@ class DbookController extends Controller
         $validated = $request->validate([
             'jenis_buku'    => 'required|min:5'
         ]);
-        $listbook   = $request->all();
-        $dbook  = Dbook::create($listbook);
+        $data   = $request->all();
+        $dbook  = Dbook::create($data);
         if($dbook) {
             return redirect()->route('layouts2.index')->with('success','Item created successfully!');
         }else{
@@ -56,8 +56,8 @@ class DbookController extends Controller
      */
     public function show($id)
     {
-        $listbook = Dbook::findOrFail($id);
-        return view('layouts2.show-typebook',compact('listbook'));
+        $data = Dbook::findOrFail($id);
+        return view('layouts2.show-typebook',compact('data'));
     }
 
     /**
@@ -68,7 +68,7 @@ class DbookController extends Controller
      */
     public function edit($id)
     {
-        $listbook = Dbook::findOrFail($id);
+        $data = Dbook::findOrFail($id);
         return view('layouts2.edit-typebook',compact('data'));
     }
 
@@ -85,7 +85,7 @@ class DbookController extends Controller
            'jenis_buku'     => 'required|:min:5'
        ]);
        $dbook = Dbook::findOrFail($id);
-       $booktype = $request->all();
+       $data = $request->all();
        $dbook->update($booktype);
        if($dbook){
         return redirect()->route('layouts2.index')->with('info','You added new items');
@@ -105,6 +105,6 @@ class DbookController extends Controller
         $dbook = DBook::findOrFail($id);
         $dbook->delete();
         return redirect('layouts2.index')
-        ->with('success','Book deleted successfully');
+        ->with('success','Book  Type deleted successfully');
     }
 }

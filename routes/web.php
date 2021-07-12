@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/index', [App\Http\Controllers\BookController::class, 'index'])->name('index');
 Route::get('/create', [App\Http\Controllers\BookController::class, 'create'])->name('create');
 Route::post('/store',  [App\Http\Controllers\BookController::class, 'store'])->name('store');
@@ -29,4 +29,4 @@ Route::put('/update/{id}',    [App\Http\Controllers\BookController::class, 'upda
 
 
 //jenis buku
-
+Route::get('/layouts2/index', [App\Http\Controllers\DBookController::class, 'index'])->name('index');

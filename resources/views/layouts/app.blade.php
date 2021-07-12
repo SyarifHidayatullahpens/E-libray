@@ -38,12 +38,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <a href="/index" class="btn btn-light mr-2">Buku</a>
+                        <a href="/layouts2/index" class="btn btn-light mr-2">Jenis Buku</a>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -81,7 +83,12 @@
         </nav>
 
         <main class="py-4">
-                @include('flash-message')
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        @include('flash-message')
+                    </div>
+                </div>
             </div>
             @yield('content')
         </main>
