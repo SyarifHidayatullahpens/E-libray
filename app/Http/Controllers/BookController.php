@@ -39,14 +39,22 @@ class BookController extends Controller
     public function store(Request $request)
     {
 
-        $validated = $request->validate([
+        $request->validate([
             'nama_buku'     => 'required|min:5',
             'penerbit'     => 'required|:min:3',
             'jenis_buku'   => 'required|:min:4',
-            'thn_terbit'   => 'required',
+            'thn_terbit'   => 'required|date',
+            'path'         => 'required|mimes:png,jpg,jpeg,pdf,xlx:|max:2048',
         ]);
-        $data   = $request->all();
-        
+
+        $data = $request->all();
+  
+        if ($file = $request->file('path')) {
+            $destinationPath = 'path/';
+            $profileFile = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $profileFile);
+            $data['path'] = "$profileFile";
+        }        
         // dd($data);
         $book   = Book::create($data);
         if($book){
@@ -89,13 +97,26 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'nama_buku'     => 'required|min:5',
             'penerbit'     => 'required|:min:3',
             'jenis_buku'   => 'required|:min:4',
-            'thn_terbit'   => 'required'
-        ]);   
+            'thn_terbit'   => 'required|date',
+            'path'         => 'required|mimes:png,jpg,jpeg,pdf,xlx:|max:2048',
+        ]); 
         $book = Book::findOrFail($id);
+        $data = $request->all();
+  
+        if ($file = $request->file('path')) {
+            $destinationPath = 'path/';
+            $profileFile = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $profileFile);
+            $data['path'] = "$profileFile";
+        } else {
+            unset($data['path']);
+        } 
+
+        // $book = Book::findOrFail($id);
         $data = $request->all(); 
         $book->update($data); 
         if($book){

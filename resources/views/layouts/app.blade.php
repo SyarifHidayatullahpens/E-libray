@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-warning shadow-sm">
             <div class="container">
             
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -44,8 +44,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <a href="/index" class="btn btn-light mr-2">Buku</a>
-                        <a href="/layouts2/index" class="btn btn-light mr-2">Jenis Buku</a>
+                        <a href="/index" class="btn btn-warning mr-2">Buku</a>
+                        <a href="/layouts2/index" class="btn btn-warning mr-2">Jenis Buku</a>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

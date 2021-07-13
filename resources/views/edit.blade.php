@@ -30,6 +30,10 @@
         <label for="exampleFormControlInput1" class="form-label">Tahun Terbit </label>
         <input   type="date" name="thn_terbit" class="form-control" id="exampleFormControlInput1" value="{{$data->thn_terbit}}">
     </div>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">File</label>
+        <input class="form-control" type="file" name ="path" id="formFile">
+    </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-success">Update</button>
             <a href="/index" class="btn btn-primary ">Back</a>

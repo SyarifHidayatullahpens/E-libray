@@ -23,6 +23,10 @@
         <input   type="date" name="tanggal" class="form-control" id="exampleFormControlInput1" value="{{$data->thn_terbit}}">
     </div>
     <div class="mb-3">
+        <label for="formFile" class="form-label">file</label>
+        <input class="form-control" type="file" name="path" id="formFile">
+    </div>
+    <div class="mb-3">
         <button type="submit" class="btn btn-primary">Update</button>
         <a href="{{route('delete',[$data->id])}}" class="btn btn-danger">Delete</a>
     </div>
