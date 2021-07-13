@@ -16,7 +16,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        $datas = Book::paginate(5);
+        
+        $datas = Book::all()->paginate(5);
+        // dd($datas);
         return view('index',compact('datas'));
     }
 
@@ -38,23 +40,24 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $request->validate([
             'nama_buku'     => 'required|min:5',
             'penerbit'     => 'required|:min:3',
             'jenis_buku'   => 'required|:min:4',
             'thn_terbit'   => 'required|date',
-            'path'         => 'required|mimes:png,jpg,jpeg,pdf,xlx:|max:2048',
+            'jbook'        => 'required',
+            'path'         => 'required|mimes:png,jpg,jpeg,pdf,xlx,docx|max:2048',
         ]);
 
         $data = $request->all();
   
-        if ($file = $request->file('path')) {
-            $destinationPath = 'path/';
-            $profileFile = date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $profileFile);
-            $data['path'] = "$profileFile";
-        }        
+        if ($path = $request->file('path')) {
+            $destinationPath = 'file/';
+            $profilePath = date('YmdHis') . "." . $path->getClientOriginalExtension();
+            $path->move($destinationPath, $profilePath);
+            $input['path'] = "$profilePath";
+        }   
         // dd($data);
         $book   = Book::create($data);
         if($book){

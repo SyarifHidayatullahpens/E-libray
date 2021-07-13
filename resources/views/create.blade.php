@@ -13,7 +13,7 @@
                 </ul>
             </div>
         @endif
-    <form method="POST" action="{{route('store')}}">
+    <form method="POST" action="{{route('store')}}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nama Buku</label>
@@ -35,6 +35,10 @@
         <div class="mb-3">
             <label for="formFile" class="form-label">File</label>
             <input class="form-control" type="file" name="path" id="formFile">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">ID Jenis Buku</label>
+            <input type="number" name="jbook" class="form-control" id="Jenis Buku">
         </div>
         <div class="mb-3">
             <a href="/index" class="btn btn-primary">Back</a>

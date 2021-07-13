@@ -20,7 +20,6 @@ class CreateBooksTable extends Migration
             $table->string('jenis_buku',50);
             $table->date('thn_terbit');
             $table->string('path');
-            $table->string('detail',30);
             $table->foreignId('jbook')->constrained('dbooks');
             $table->timestamps();
         });

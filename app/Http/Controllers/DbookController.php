@@ -86,7 +86,7 @@ class DbookController extends Controller
        ]);
        $dbook = Dbook::findOrFail($id);
        $data = $request->all();
-       $dbook->update($booktype);
+       $dbook->update($data);
        if($dbook){
         return redirect()->route('layouts2.index')->with('info','You added new items');
         }else{
