@@ -11,4 +11,8 @@ class Dbook extends Model
     protected $table = 'dbooks';
     protected $fillable = ['jenis_buku'];
 
+
+    public function book() {
+        return $this->hasMany(Book::class);
+    }
 }

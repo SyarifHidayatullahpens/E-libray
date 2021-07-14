@@ -38,7 +38,12 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">ID Jenis Buku</label>
-            <input type="number" name="jbook" class="form-control" id="Jenis Buku">
+            <select class="form-control" name="dbooks_id" id="dbooks" required>
+                <option value=""> Pilih ID </option>
+                @foreach($dbooks as $dbook)
+                    <option value="{{ $dbook->id}}"> {{ $dbook->id}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <a href="/index" class="btn btn-primary">Back</a>

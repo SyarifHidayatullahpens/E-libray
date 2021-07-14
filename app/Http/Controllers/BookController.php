@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Dbook as ModelsDbook;
 use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +30,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $dbooks = ModelsDbook::all();
+        return view('create', compact('dbooks'));
     }
 
     /**
@@ -58,7 +60,7 @@ class BookController extends Controller
             $path->move($destinationPath, $profilePath);
             $input['path'] = "$profilePath";
         }
-           
+
         // dd($data);
         $book   = Book::create($data);
         if($book){
