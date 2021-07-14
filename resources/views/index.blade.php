@@ -26,7 +26,7 @@
                     <td>{{$data->penerbit}}</td>
                     <td>{{$data->jenis_buku}}</td>
                     <td>{{$data->thn_terbit}}</td>
-                    <td>{{$data->path}}</td>
+                    <td><a href="{{$data->path}}">Document</a></td>
                     <td>{{$data->jbook}}</td>
                     <td>
                     <a href="{{route('edit',[$data->id])}}" type="submit" class="btn btn-primary">Edit</a>
@@ -36,7 +36,7 @@
             @endforeach
         </tbody>
     </table>
-    <!-- {{$datas->links()}} -->
+    {{$datas->links()}}
     
 @endsection
 </div>

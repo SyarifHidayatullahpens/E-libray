@@ -29,4 +29,4 @@ Route::put('/update/{id}',    [App\Http\Controllers\BookController::class, 'upda
 
 
 //jenis buku
-Route::get('/layouts2/index', [App\Http\Controllers\DBookController::class, 'index'])->name('index');
+Route::get('/layouts2/index', [App\Http\Controllers\DBookController::class, 'index'])->name('index2');

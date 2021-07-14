@@ -57,7 +57,8 @@ class BookController extends Controller
             $profilePath = date('YmdHis') . "." . $path->getClientOriginalExtension();
             $path->move($destinationPath, $profilePath);
             $input['path'] = "$profilePath";
-        }   
+        }
+           
         // dd($data);
         $book   = Book::create($data);
         if($book){
