@@ -15,7 +15,7 @@ class CreateDbooksTable extends Migration
     {
         Schema::create('dbooks', function (Blueprint $table) {
             $table->id();
-            $table->String('jenis_buku');
+            $table->string('jenis_buku',20);
             $table->timestamps();
         });
     }
