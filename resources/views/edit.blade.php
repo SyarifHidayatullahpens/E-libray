@@ -34,6 +34,10 @@
         <label for="formFile" class="form-label">File</label>
         <input class="form-control" type="file" name ="path" id="formFile">
     </div>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">ID Jenis Buku</label>
+        <input class="form-control" type="number" name ="path" id="formFile">
+    </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-success">Update</button>
             <a href="/index" class="btn btn-primary ">Back</a>

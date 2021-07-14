@@ -8,23 +8,27 @@
     @method('PUT')
   <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Nama Buku</label>
-        <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" value="{{$data->nama_buku}}">
+        <input type="text" name="nama_buku" class="form-control" id="exampleFormControlInput1" value="{{$data->nama_buku}}">
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Penerbit</label>
-        <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" value="{{$data->penerbit}}">
+        <input type="text" name="penerbit" class="form-control" id="exampleFormControlInput1" value="{{$data->penerbit}}">
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Jenis Buku</label>
-        <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" value="{{$data->jenis_buku}}">
+        <input type="text" name="jenis_buku" class="form-control" id="exampleFormControlInput1" value="{{$data->jenis_buku}}">
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Tahun Terbit </label>
-        <input   type="date" name="tanggal" class="form-control" id="exampleFormControlInput1" value="{{$data->thn_terbit}}">
+        <input   type="date" name="thn_terbit" class="form-control" id="exampleFormControlInput1" value="{{$data->thn_terbit}}">
     </div>
     <div class="mb-3">
         <label for="formFile" class="form-label">file</label>
         <input class="form-control" type="file" name="path" id="formFile">
+    </div>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">file</label>
+        <input class="form-control" type="number" name="path" id="formFile" value="{{$data->jbook}">
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Update</button>
