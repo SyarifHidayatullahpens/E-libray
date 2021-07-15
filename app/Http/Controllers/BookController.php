@@ -17,7 +17,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        // $datas = DB::table('books')->join('dbooks','jbook','=','id');
+        // $datas = DB::table('books')->join('dbooks','jbook_id','=','books.id')->get();
         $datas = Book::paginate(5);
         // dd($datas);
         return view('index',compact('datas'));
