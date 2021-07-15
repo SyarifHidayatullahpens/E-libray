@@ -17,7 +17,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        
+        // $datas = DB::table('books')->join('dbooks','jbook','=','id');
         $datas = Book::paginate(5);
         // dd($datas);
         return view('index',compact('datas'));

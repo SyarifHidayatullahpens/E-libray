@@ -3,6 +3,8 @@
 @section('content')
 <div class="container">
     <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="/index" class="btn btn-info">List Buku</a>
+        <a href="#" class="btn btn-warning">Jenis Buku</a>
         <a href="{{route('create')}}" class="btn btn-success">Tambah Buku</a>
     </div><br><br>
     <table class="table table-success table-striped">

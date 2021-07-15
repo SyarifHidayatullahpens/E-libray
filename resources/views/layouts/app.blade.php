@@ -44,8 +44,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <a href="/index" class="btn btn-info mr-2">Buku</a>
-                        <a href="/layouts2/index" class="btn btn-info mr-2">Jenis Buku</a>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
