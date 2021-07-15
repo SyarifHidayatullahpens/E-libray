@@ -30,7 +30,7 @@
                     <option value="{{ $dbook->id}}"> {{ $dbook->jenis_buku}}</option>
                 @endforeach
             </select>
-        </div>
+    </div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Tahun Terbit </label>
         <input   type="date" name="thn_terbit" class="form-control" id="exampleFormControlInput1" value="{{$data->thn_terbit}}">

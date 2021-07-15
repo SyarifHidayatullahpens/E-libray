@@ -20,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($datas as $data)
+            @forelse($datas as $data)
                 <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$data->nama_buku}}</td>
@@ -33,7 +33,10 @@
                     <a href="{{route('delete',[$data->id])}}" type="button" class="btn btn-danger" onclick= "return confirm('Apakah anda ingin menghapus item.?');">Delate</a>
                     </td>
                 </tr>
-            @endforeach
+                @empty
+	    				<p> Data Not Found </p>
+	    				
+            @endforelse
         </tbody>
     </table>
     {{$datas->links()}}

@@ -17,9 +17,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        // $datas = DB::table('books')->join('dbooks','jbook_id','=','books.id')->get();
-        $datas = Book::paginate(5);
-        // dd($datas);
+        $datas = DB::table('books')->join('dbooks','jbook_id','=','dbooks.id')
+        ->select('books.*','dbooks.jenis_buku')
+        ->paginate(5);
         return view('index',compact('datas'));
     }
 
@@ -89,6 +89,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
+        
         $data = Book::findOrFail($id);
         return view('edit',compact('data'));
     }
@@ -104,7 +105,7 @@ class BookController extends Controller
     {
         $request->validate([
             'nama_buku'     => 'required|min:5',
-            'penerbit'     => 'required|:min:3',
+            'penerbit'     => 'required',
             'jbook_id'     => 'required',
             'thn_terbit'   => 'required|date',
             'path'         => 'required|mimes:png,jpg,jpeg,pdf,xlx:|max:2048',
