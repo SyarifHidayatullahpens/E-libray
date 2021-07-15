@@ -44,11 +44,10 @@ class BookController extends Controller
     {
         
         $request->validate([
-            'nama_buku'     => 'required|min:5',
+            'nama_buku'    => 'required|min:5',
             'penerbit'     => 'required|:min:3',
-            'jenis_buku'   => 'required|:min:4',
+            'jbook_id'     => 'required',
             'thn_terbit'   => 'required|date',
-            'jbook'        => 'required',
             'path'         => 'required|mimes:png,jpg,jpeg,pdf,xlx,docx|max:2048',
         ]);
 
@@ -106,7 +105,7 @@ class BookController extends Controller
         $request->validate([
             'nama_buku'     => 'required|min:5',
             'penerbit'     => 'required|:min:3',
-            'jenis_buku'   => 'required|:min:4',
+            'jbook_id'     => 'required',
             'thn_terbit'   => 'required|date',
             'path'         => 'required|mimes:png,jpg,jpeg,pdf,xlx:|max:2048',
         ]); 

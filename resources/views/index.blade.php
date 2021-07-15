@@ -14,7 +14,6 @@
                 <td scope="col">Jenis Buku</td>
                 <td scope="col">Tahun Terbit</td>
                 <td scope="col">File</td>
-                <td scope="col">Id Jenis Buku</td>
                 <td scope="col">Action</td>
             </tr>
         </thead>
@@ -27,7 +26,6 @@
                     <td>{{$data->jenis_buku}}</td>
                     <td>{{$data->thn_terbit}}</td>
                     <td><a href="{{$data->path}}">Document</a></td>
-                    <td>{{$data->jbook}}</td>
                     <td>
                     <a href="{{route('edit',[$data->id])}}" type="submit" class="btn btn-primary">Edit</a>
                     <a href="{{route('delete',[$data->id])}}" type="button" class="btn btn-danger" onclick= "return confirm('Apakah anda ingin menghapus item.?');">Delate</a>

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title','Create Book')
 
-
 @section('content')
 <div class="container">
         @if ($errors->any())
@@ -22,11 +21,15 @@
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Penerbit</label>
             <input type="text" name="penerbit" class="form-control" id="Penerbit">
-            
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Jenis Buku</label>
-            <input type="text" name="jenis_buku" class="form-control" id="Jenis Buku">
+            <select class="form-control" name="jbook_id" id="dbooks" required>
+                <option value=""> Pilih </option>
+                @foreach($dbooks as $dbook)
+                    <option value="{{ $dbook->id}}"> {{ $dbook->jenis_buku}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Tahun Terbit</label>
@@ -35,15 +38,6 @@
         <div class="mb-3">
             <label for="formFile" class="form-label">File</label>
             <input class="form-control" type="file" name="path" id="formFile">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">ID Jenis Buku</label>
-            <select class="form-control" name="dbooks_id" id="dbooks" required>
-                <option value=""> Pilih ID </option>
-                @foreach($dbooks as $dbook)
-                    <option value="{{ $dbook->id}}"> {{ $dbook->id}}</option>
-                @endforeach
-            </select>
         </div>
         <div class="mb-3">
             <a href="/index" class="btn btn-primary">Back</a>
