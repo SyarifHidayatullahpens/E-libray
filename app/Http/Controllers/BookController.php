@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\DBook;
 use App\Models\Dbook as ModelsDbook;
 use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -91,7 +92,9 @@ class BookController extends Controller
     {
         
         $data = Book::findOrFail($id);
-        return view('edit',compact('data'));
+        $check = Dbook::all();
+        // dd($data, $check);
+        return view('edit',compact('data','check'));
     }
 
     /**

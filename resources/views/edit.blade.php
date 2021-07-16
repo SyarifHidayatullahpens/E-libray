@@ -24,9 +24,9 @@
     </div>
     <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Jenis Buku</label>
-            <select class="form-control" name="jbook_id" id="dbooks" required>
+            <select class="form-control" name="jbook_id" id="subCategory" required>
                 <option value=""> Pilih </option>
-                @foreach($dbooks as $dbook)
+                @foreach($check as $dbook)
                     <option value="{{ $dbook->id}}"> {{ $dbook->jenis_buku}}</option>
                 @endforeach
             </select>
